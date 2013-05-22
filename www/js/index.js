@@ -48,6 +48,17 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         alert("ok");
+        alert("networkState");
+        
+        var networkState = reachability.code || reachability;
+
+        var states = {};
+        states[NetworkStatus.NOT_REACHABLE] = 'No network connection';
+        states[NetworkStatus.REACHABLE_VIA_CARRIER_DATA_NETWORK] = 'Carrier data connection';
+        states[NetworkStatus.REACHABLE_VIA_WIFI_NETWORK] = 'WiFi connection';
+
+        alert('Connection type: ' + states[networkState]);
+        
 
         console.log('Received Event: ' + id);
     }
